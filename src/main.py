@@ -1,6 +1,6 @@
 """Univariate anomaly detection module."""
 
-__version__ = '0.0.2'
+__version__ = '1.0.0'
 
 from typing import Dict
 from fastapi import FastAPI
