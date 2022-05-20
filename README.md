@@ -7,19 +7,19 @@ $ docker build . -t univariate-anomaly-detection
 
 ## Run
 ```sh
-$ docker run -p 8080:8080 univariate-anomaly-detection
+$ docker run -p 8081:8080 univariate-anomaly-detection
 ```
 
 ## Documentation
-* Swagger: http://localhost:8080/documentation
-* ReDoc: http://localhost:8080/redoc
+* Swagger: http://localhost:8081/documentation
+* ReDoc: http://localhost:8081/redoc
 
 ## Use
 
 ### 1. detect-point-anomalies
 ```sh
 $ curl -X 'POST' \
-  'http://localhost:8080/detect-point-anomalies' \
+  'http://localhost:8081/detect-point-anomalies' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -63,7 +63,7 @@ returns
 
 ```sh
 $ curl -X 'POST' \
-  'http://localhost:8080/detect-threshold-anomalies' \
+  'http://localhost:8081/detect-threshold-anomalies' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -100,7 +100,7 @@ returns
 
 ```sh
 $ curl -X 'POST' \
-  'http://localhost:8080/detect-levelshift-anomalies' \
+  'http://localhost:8081/detect-levelshift-anomalies' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -147,7 +147,7 @@ returns
 
 ```sh
 $ curl -X 'POST' \
-  'http://localhost:8080/detect-volatilityshift-anomalies' \
+  'http://localhost:8081/detect-volatilityshift-anomalies' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -195,7 +195,7 @@ returns
 ### Add the parameter `aggregate_anomalies`
 ```sh
 $ curl -X 'POST' \
-  'http://localhost:8080/detect-point-anomalies' \
+  'http://localhost:8081/detect-point-anomalies' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
