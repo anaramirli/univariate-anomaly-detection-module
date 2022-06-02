@@ -10,6 +10,13 @@ $ docker build . -t univariate-anomaly-detection
 $ docker run -p 8080:8080 univariate-anomaly-detection
 ```
 
+## Unit Tests
+Note: Make sure that test requirements are met (see src/tests/requirements.txt)
+```sh
+$ cd src/tests
+$ pytest
+```
+
 ## Documentation
 * Swagger: http://localhost:8080/documentation
 * ReDoc: http://localhost:8080/redoc
@@ -67,32 +74,36 @@ $ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-    "score_data": {
-        "1382400000000": 90540.0,
-        "1382400300000": 90720.0,
-        "1382400600000": 89910.0,
-        "1382400900000": 87390.0,
-        "1382401200000": 85410.0,
-        "1382401500000": 79650.0
-    },
-    "parameters": {
-        "c": 3,
-        "window": "15T",
-        "aggregate_anomalies": "500S"
-    }
+		"score_data": {
+			"1609455600": 0.12178372709024772, 
+			"1609455660": 0.11050720099031877, 
+			"1609455720": 0.10551539379110654, 
+			"1609455780": 0.12782051546031659, 
+			"1609455840": 0.10162464965348023, 
+			"1609455900": 0.10842426724768395, 
+			"1609455960": 0.11646994268581218, 
+			"1609456020": 0.1069694857691467, 
+			"1609456080": 0.10106735409516875, 
+			"1609456140": 0.10532371366814815}, 	
+		"parameters": {
+			"high": 0.11050720099031877}
 }'
 ```
 returns
 ```json
 {
-    "anomaly_list": {
-        "1382400000000": false,
-        "1382400300000": false,
-        "1382400600000": false,
-        "1382400900000": false,
-        "1382401200000": false,
-        "1382401500000": false
-    }
+  "anomaly_list": {
+    "1609455600": true,
+    "1609455660": false,
+    "1609455720": false,
+    "1609455780": true,
+    "1609455840": false,
+    "1609455900": false,
+    "1609455960": true,
+    "1609456020": false,
+    "1609456080": false,
+    "1609456140": false
+  }
 }
 ```
 
